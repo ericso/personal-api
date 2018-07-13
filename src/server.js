@@ -15,10 +15,12 @@ const root = {
 };
 
 const app = express();
+const PORT = process.env.PORT || 4000;
+
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   rootValue: root,
   graphiql: true,
 }));
-app.listen(4000);
-console.log('GraphQL API server running at 127.0.0.1:4000/graphql');
+app.listen(PORT);
+console.log(`GraphQL API server running at 127.0.0.1:${PORT}/graphql`);
